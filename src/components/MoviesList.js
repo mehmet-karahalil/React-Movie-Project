@@ -20,12 +20,14 @@ export default function MoviesList() {
   const nextPage = () => {
     setPageNumber((prevPageNumber) => prevPageNumber + 1);
     dispatch(pageUp(pageNumber + 1));
+    window.scrollTo(0, 0);
   };
 
   const prevPage = () => {
     if (pageNumber > 1) {
       setPageNumber((prevPageNumber) => prevPageNumber - 1);
       dispatch(pageDown(pageNumber - 1));
+      window.scrollTo(0, 0);
     }
   };
 

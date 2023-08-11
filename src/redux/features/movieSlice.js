@@ -12,6 +12,7 @@ const initialState = {
 
 export const getMovie = createAsyncThunk("getMovie", async (_, thunkAPI) => {
   const { page } = thunkAPI.getState().movie;
+  const {token} = thunkAPI.getState().token
   const options = {
     method: 'GET',
     url: 'https://api.themoviedb.org/3/movie/popular',
@@ -24,7 +25,7 @@ export const getMovie = createAsyncThunk("getMovie", async (_, thunkAPI) => {
     },
     headers: {
       accept: 'application/json',
-      Authorization: ''
+      Authorization: token
     }
   };
 

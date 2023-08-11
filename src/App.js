@@ -20,7 +20,7 @@ export default class app extends Component {
           <br />
           <Routes>
             <Route path="/" element={<h1>home page</h1>} />
-            <Route path="/movies" element={<MoviesPage />} />
+            <Route path="/popular" element={<MoviesPage />} />
           </Routes>
         </Container>
 

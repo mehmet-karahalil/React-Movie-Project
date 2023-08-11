@@ -9,14 +9,14 @@ const movieCard = ({ movie }) => (
     <Card.Content>
       <Card.Header>{movie.original_title}</Card.Header>
       <Card.Meta>
-        <span className="date">Joined in {movie.createdAt}</span>
+        <span className="date">release date:{movie.release_date}  {movie.createdAt}</span>
       </Card.Meta>
       <Card.Description>{movie.overview}</Card.Description>
     </Card.Content>
     <Card.Content extra>
       <a>
         <Icon name="user" />
-        vote average: {movie.vote_average}
+        vote average: {movie.vote_average}  
       </a>
     </Card.Content>
   </Card>

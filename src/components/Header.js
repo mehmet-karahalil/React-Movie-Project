@@ -28,8 +28,8 @@ export default class Header extends Component {
             <Menu.Item as={Link} to={"/"}>
               Home page
             </Menu.Item>
-            <Menu.Item as={Link} to={"movies"}>
-              Movies
+            <Menu.Item as={Link} to={"popular"}>
+              Popular
             </Menu.Item>
 
           </Container>

@@ -4,7 +4,7 @@ export default function MoviesPage() {
 
   return (
     <div>
-      <h1>MoviesPage</h1>
+      <h1>Popular</h1>
       <MoviesList />
     </div>
   );
