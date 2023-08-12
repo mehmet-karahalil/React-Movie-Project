@@ -8,23 +8,33 @@ import Header from "./components/Header";
 
 
 export default class app extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isDarkMode: false
+    };
+  }
+
+  toggleDarkMode = () => {
+    this.setState(prevState => ({
+      isDarkMode: !prevState.isDarkMode
+    }));
+  }
 
   render() {
-
+    const { isDarkMode } = this.state;
     return (
-      <div>
-        <Header/>
-        <Container style={{width:"1350px"}}>
-          hello world!
-          <hr />
+      <div className={isDarkMode ? "dark-mode" : "light-mode"}>
+        <Header toggleDarkMode={this.toggleDarkMode} isDarkMode={isDarkMode} />
+        <Container style={{ width: "1350px" }}>
+
           <br />
           <Routes>
             <Route path="/" element={<h1>home page</h1>} />
             <Route path="/popular" element={<MoviesPage />} />
           </Routes>
         </Container>
-
-       <Footer />
+        <Footer />
       </div>
     );
   }

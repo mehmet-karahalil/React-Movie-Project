@@ -15,7 +15,7 @@ export default function MoviesList() {
     dispatch(getMovie(pageNumber));
   }, [pageNumber, dispatch]);
 
-  const emptyMovie = <h1>404 not found </h1>;
+  const emptyMovie = <h1>Loading </h1>;
 
   const nextPage = () => {
     setPageNumber((prevPageNumber) => prevPageNumber + 1);
