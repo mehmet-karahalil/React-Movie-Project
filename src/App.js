@@ -5,6 +5,8 @@ import React, { Component } from "react";
 import {  Container} from "semantic-ui-react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import HomePage from "./components/pages/HomePage";
+import TopRated from "./components/pages/TopRatedPage";
 
 
 export default class app extends Component {
@@ -30,8 +32,10 @@ export default class app extends Component {
 
           <br />
           <Routes>
-            <Route path="/" element={<h1>home page</h1>} />
+            <Route path="/" element={<h1>geliştiriliyor</h1>} />
+            <Route path="/home" element={<HomePage/>} />
             <Route path="/popular" element={<MoviesPage />} />
+            <Route path="/top-rated" element={<TopRated />} />
           </Routes>
         </Container>
         <Footer />

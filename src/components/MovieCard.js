@@ -5,7 +5,6 @@ import "./MovieCard.css";
 const MovieCard = ({ movie }) => {
   const [isDescriptionVisible, setDescriptionVisible] = useState(false);
 
-
   const handleMouseEnter = () => {
     setDescriptionVisible(true);
   };
@@ -15,12 +14,17 @@ const MovieCard = ({ movie }) => {
   };
   return (
     <Card>
-      <div className="image-container"    onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}>
+      <div
+        className="image-container"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <Image
           className="movie-image"
           src={`https://image.tmdb.org/t/p/w1280${movie.poster_path}`}
-          wrapped ui={true}/>
+          wrapped
+          ui={true}
+        />
         {isDescriptionVisible && (
           <div className="overlay">
             <div className="description">

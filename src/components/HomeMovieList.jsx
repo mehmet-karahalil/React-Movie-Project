@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovie, pageDown, pageUp } from "../redux/features/movieSlice";
+import { getMovie, pageDown, pageUp } from "../redux/features/homeMovieSlice";
 import MovieCard from "./MovieCard";
 import { Grid, Button, Icon } from "semantic-ui-react";
 import { CircleLoader } from "react-spinners";
 
-export default function MoviesList() {
+export default function HomeMovieList() {
   const dispatch = useDispatch();
-  const { movie = [], loading } = useSelector((state) => state.movie);
+  const { movie = [], loading } = useSelector((state) => state.homemovie);
 
   const [pageNumber, setPageNumber] = useState(1);
 

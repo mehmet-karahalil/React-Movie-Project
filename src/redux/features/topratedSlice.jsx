@@ -13,7 +13,7 @@ export const getMovie = createAsyncThunk("getMovie", async (_, thunkAPI) => {
   const { token } = thunkAPI.getState().token;
   const options = {
     method: "GET",
-    url: "https://api.themoviedb.org/3/movie/popular",
+    url: "https://api.themoviedb.org/3/movie/top_rated",
     params: {
       include_adult: "false",
       include_video: "false",
@@ -35,7 +35,7 @@ export const getMovie = createAsyncThunk("getMovie", async (_, thunkAPI) => {
   }
 });
 
-export const movieSlice = createSlice({
+export const topratedSlice = createSlice({
   name: "movie",
   initialState,
   reducers: {
@@ -62,6 +62,6 @@ export const movieSlice = createSlice({
   },
 });
 
-export const { pageUp, pageDown } = movieSlice.actions;
+export const { pageUp, pageDown } = topratedSlice.actions;
 
-export default movieSlice.reducer;
+export default topratedSlice.reducer;

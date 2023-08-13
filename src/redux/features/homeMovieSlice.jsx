@@ -2,30 +2,33 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { produce } from "immer";
 
+
+
 const initialState = {
   movie: [],
   loading: false,
-  page: 1,
+  page: 1
 };
 
 export const getMovie = createAsyncThunk("getMovie", async (_, thunkAPI) => {
   const { page } = thunkAPI.getState().movie;
-  const { token } = thunkAPI.getState().token;
+  const {token} = thunkAPI.getState().token
   const options = {
-    method: "GET",
-    url: "https://api.themoviedb.org/3/movie/popular",
+    method: 'GET',
+    url: 'https://api.themoviedb.org/3/movie/now_playing',
     params: {
-      include_adult: "false",
-      include_video: "false",
-      language: "en-US",
+      include_adult: 'false',
+      include_video: 'false',
+      language: 'en-US',
       page: page,
-      sort_by: "popularity.desc",
+      sort_by: 'popularity.desc'
     },
     headers: {
-      accept: "application/json",
-      Authorization: token,
-    },
+      accept: 'application/json',
+      Authorization: token
+    }
   };
+
 
   try {
     const response = await axios.request(options);
@@ -35,16 +38,16 @@ export const getMovie = createAsyncThunk("getMovie", async (_, thunkAPI) => {
   }
 });
 
-export const movieSlice = createSlice({
+export const homeMovieSlice = createSlice({
   name: "movie",
   initialState,
   reducers: {
-    pageUp: (state, action) => {
-      state.page = action.payload;
+    pageUp: (state,action)=>{
+      state.page=action.payload
     },
-    pageDown: (state, action) => {
-      state.page = action.payload;
-    },
+    pageDown: (state,action)=>{
+      state.page=action.payload
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(getMovie.fulfilled, (state, action) => {
@@ -62,6 +65,6 @@ export const movieSlice = createSlice({
   },
 });
 
-export const { pageUp, pageDown } = movieSlice.actions;
+export const {pageUp,pageDown}  = homeMovieSlice.actions
 
-export default movieSlice.reducer;
+export default homeMovieSlice.reducer;

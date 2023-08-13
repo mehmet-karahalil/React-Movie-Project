@@ -13,6 +13,7 @@ export default class Header extends Component {
   render() {
     const { menuFixed } = this.state;
     const { isDarkMode } = this.props;
+    const darkmodestyle = (isDarkMode ? fixedDarkMenuStyle : fixedMenuStyle)
     return (
       <div>
         <Button className="darkmodebtn" onClick={this.props.toggleDarkMode}>
@@ -20,33 +21,48 @@ export default class Header extends Component {
         </Button>
 
         <Menu
+        className="headermenu"
           borderless
           fixed={menuFixed ? "top" : undefined}
-          style={isDarkMode ? fixedDarkMenuStyle : fixedMenuStyle}
+          style={darkmodestyle}
         >
           <Container text>
             <Menu.Item>
               <Image size="mini" src="https://react.semantic-ui.com/logo.png" />
             </Menu.Item>
             <Menu.Item
-              style={isDarkMode ? fixedDarkMenuStyle : fixedMenuStyle}
+              style={darkmodestyle}
               header
             >
               MovieApp
             </Menu.Item>
             <Menu.Item
-              style={isDarkMode ? fixedDarkMenuStyle : fixedMenuStyle}
+              style={darkmodestyle}
               as={Link}
               to={"/"}
+            >
+              giriş
+            </Menu.Item>
+            <Menu.Item
+              style={darkmodestyle}
+              as={Link}
+              to={"/home"}
             >
               Home page
             </Menu.Item>
             <Menu.Item
-              style={isDarkMode ? fixedDarkMenuStyle : fixedMenuStyle}
+              style={darkmodestyle}
               as={Link}
               to={"popular"}
             >
               Popular
+            </Menu.Item>
+            <Menu.Item
+              style={darkmodestyle}
+              as={Link}
+              to={"top-rated"}
+            >
+              Top Rated
             </Menu.Item>
           </Container>
         </Menu>

@@ -4,7 +4,6 @@ export const fixedMenuStyle = {
   outline:"none",
   backgroundColor: "#fff",
   color:"red",
-
 };
 
 export const fixedDarkMenuStyle = {
