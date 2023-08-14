@@ -5,11 +5,11 @@ import { produce } from "immer";
 const initialState = {
   movie: [],
   loading: false,
-  page: 1,
+  Apage: 1,
 };
 
-export const getMovie = createAsyncThunk("getMovie", async (_, thunkAPI) => {
-  const { page } = thunkAPI.getState().movie;
+export const topgetMovie = createAsyncThunk("getMovie", async (_, thunkAPI) => {
+  const { Apage } = thunkAPI.getState().topRated;
   const { token } = thunkAPI.getState().token;
   const options = {
     method: "GET",
@@ -18,7 +18,7 @@ export const getMovie = createAsyncThunk("getMovie", async (_, thunkAPI) => {
       include_adult: "false",
       include_video: "false",
       language: "en-US",
-      page: page,
+      page: Apage,
       sort_by: "popularity.desc",
     },
     headers: {
@@ -36,25 +36,25 @@ export const getMovie = createAsyncThunk("getMovie", async (_, thunkAPI) => {
 });
 
 export const topratedSlice = createSlice({
-  name: "movie",
+  name: "topratedmovie",
   initialState,
   reducers: {
-    pageUp: (state, action) => {
-      state.page = action.payload;
+    toppageUp: (state, action) => {
+      state.Apage = action.payload;
     },
-    pageDown: (state, action) => {
-      state.page = action.payload;
+    toppageDown: (state, action) => {
+      state.Apage = action.payload;
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getMovie.fulfilled, (state, action) => {
+    builder.addCase(topgetMovie.fulfilled, (state, action) => {
       return produce(state, (draftState) => {
         draftState.movie = action.payload.results;
         draftState.loading = false;
       });
     });
 
-    builder.addCase(getMovie.pending, (state) => {
+    builder.addCase(topgetMovie.pending, (state) => {
       return produce(state, (draftState) => {
         draftState.loading = true;
       });
@@ -62,6 +62,6 @@ export const topratedSlice = createSlice({
   },
 });
 
-export const { pageUp, pageDown } = topratedSlice.actions;
+export const { toppageUp, toppageDown } = topratedSlice.actions;
 
 export default topratedSlice.reducer;

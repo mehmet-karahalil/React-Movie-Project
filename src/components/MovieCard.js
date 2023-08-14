@@ -43,10 +43,10 @@ const MovieCard = ({ movie }) => {
         </Card.Meta>
       </Card.Content>
       <Card.Content extra>
-        <a>
+        <span>
           <Icon name="user" />
           vote average: {movie.vote_average}
-        </a>
+        </span>
       </Card.Content>
     </Card>
   );

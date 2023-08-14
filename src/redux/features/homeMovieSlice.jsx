@@ -7,11 +7,11 @@ import { produce } from "immer";
 const initialState = {
   movie: [],
   loading: false,
-  page: 1
+  Cpage: 1
 };
 
-export const getMovie = createAsyncThunk("getMovie", async (_, thunkAPI) => {
-  const { page } = thunkAPI.getState().movie;
+export const homegetMovie = createAsyncThunk("getMovie", async (_, thunkAPI) => {
+  const { Cpage } = thunkAPI.getState().homemovie;
   const {token} = thunkAPI.getState().token
   const options = {
     method: 'GET',
@@ -20,7 +20,7 @@ export const getMovie = createAsyncThunk("getMovie", async (_, thunkAPI) => {
       include_adult: 'false',
       include_video: 'false',
       language: 'en-US',
-      page: page,
+      page: Cpage,
       sort_by: 'popularity.desc'
     },
     headers: {
@@ -39,25 +39,25 @@ export const getMovie = createAsyncThunk("getMovie", async (_, thunkAPI) => {
 });
 
 export const homeMovieSlice = createSlice({
-  name: "movie",
+  name: "homemovie",
   initialState,
   reducers: {
     pageUp: (state,action)=>{
-      state.page=action.payload
+      state.Cpage=action.payload
     },
     pageDown: (state,action)=>{
-      state.page=action.payload
+      state.Cpage=action.payload
     }
   },
   extraReducers: (builder) => {
-    builder.addCase(getMovie.fulfilled, (state, action) => {
+    builder.addCase(homegetMovie.fulfilled, (state, action) => {
       return produce(state, (draftState) => {
         draftState.movie = action.payload.results;
         draftState.loading = false;
       });
     });
 
-    builder.addCase(getMovie.pending, (state) => {
+    builder.addCase(homegetMovie.pending, (state) => {
       return produce(state, (draftState) => {
         draftState.loading = true;
       });

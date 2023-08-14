@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovie, pageDown, pageUp } from "../redux/features/homeMovieSlice";
+import { homegetMovie, pageDown, pageUp } from "../redux/features/homeMovieSlice";
 import MovieCard from "./MovieCard";
 import { Grid, Button, Icon } from "semantic-ui-react";
 import { CircleLoader } from "react-spinners";
@@ -12,25 +12,27 @@ export default function HomeMovieList() {
   const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
-    dispatch(getMovie(pageNumber));
+    dispatch(homegetMovie(pageNumber));
   }, [pageNumber, dispatch]);
 
   const emptyMovie = <h1>Loading </h1>;
 
   const nextPage = () => {
-    setPageNumber((prevPageNumber) => prevPageNumber + 1);
-    dispatch(pageUp(pageNumber + 1));
+    const newPageNumber = pageNumber + 1;
+    setPageNumber(newPageNumber);
+    dispatch(pageUp(newPageNumber));
     window.scrollTo(0, 0);
   };
-
+  
   const prevPage = () => {
     if (pageNumber > 1) {
-      setPageNumber((prevPageNumber) => prevPageNumber - 1);
-      dispatch(pageDown(pageNumber - 1));
+      const newPageNumber = pageNumber - 1;
+      setPageNumber(newPageNumber);
+      dispatch(pageDown(newPageNumber));
       window.scrollTo(0, 0);
     }
   };
-
+  
   const movielist = (
     <div>
       <Grid>

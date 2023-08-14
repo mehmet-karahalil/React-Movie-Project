@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovie, pageDown, pageUp } from "../redux/features/movieSlice";
+import { getMovie, poppageDown, poppageUp } from "../redux/features/movieSlice";
 import MovieCard from "./MovieCard";
 import { Grid, Button, Icon } from "semantic-ui-react";
 import { CircleLoader } from "react-spinners";
@@ -18,15 +18,17 @@ export default function MoviesList() {
   const emptyMovie = <h1>Loading </h1>;
 
   const nextPage = () => {
-    setPageNumber((prevPageNumber) => prevPageNumber + 1);
-    dispatch(pageUp(pageNumber + 1));
+    const newPageNumber = pageNumber + 1;
+    setPageNumber(newPageNumber);
+    dispatch(poppageUp(newPageNumber));
     window.scrollTo(0, 0);
   };
-
+  
   const prevPage = () => {
     if (pageNumber > 1) {
-      setPageNumber((prevPageNumber) => prevPageNumber - 1);
-      dispatch(pageDown(pageNumber - 1));
+      const newPageNumber = pageNumber - 1;
+      setPageNumber(newPageNumber);
+      dispatch(poppageDown(newPageNumber));
       window.scrollTo(0, 0);
     }
   };

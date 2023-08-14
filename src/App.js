@@ -32,8 +32,7 @@ export default class app extends Component {
 
           <br />
           <Routes>
-            <Route path="/" element={<h1>geliştiriliyor</h1>} />
-            <Route path="/home" element={<HomePage/>} />
+            <Route path="/" element={<HomePage/>} />
             <Route path="/popular" element={<MoviesPage />} />
             <Route path="/top-rated" element={<TopRated />} />
           </Routes>

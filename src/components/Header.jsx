@@ -7,7 +7,6 @@ import "./Header.css";
 export default class Header extends Component {
   state = {
     menuFixed: false,
-    overlayFixed: false,
   };
 
   render() {
@@ -40,13 +39,6 @@ export default class Header extends Component {
               style={darkmodestyle}
               as={Link}
               to={"/"}
-            >
-              giriş
-            </Menu.Item>
-            <Menu.Item
-              style={darkmodestyle}
-              as={Link}
-              to={"/home"}
             >
               Home page
             </Menu.Item>
