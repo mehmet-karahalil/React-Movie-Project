@@ -13,7 +13,7 @@ const MovieCard = ({ movie }) => {
     setDescriptionVisible(false);
   };
   return (
-    <Card>
+    <Card style={{width:"370px", height:"625px"}}>
       <div
         className="image-container"
         onMouseEnter={handleMouseEnter}
@@ -35,10 +35,11 @@ const MovieCard = ({ movie }) => {
         )}
       </div>
       <Card.Content>
-        <Card.Header>{movie.original_title}</Card.Header>
+        <Card.Header style={{fontSize:"17px",height:"20px"}}>{movie.original_title}</Card.Header>
+        <br />
         <Card.Meta>
           <span className="date">
-            release date: {movie.release_date} {movie.createdAt}
+            release date: {movie.release_date}
           </span>
         </Card.Meta>
       </Card.Content>

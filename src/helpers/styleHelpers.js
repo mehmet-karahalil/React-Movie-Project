@@ -14,3 +14,8 @@ export const fixedDarkMenuStyle = {
   color: "white"
 };
 
+export const pagecss={
+  position:"relative",
+  width:"1700px",
+  margin : "0 auto" 
+}

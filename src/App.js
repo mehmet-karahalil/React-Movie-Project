@@ -28,7 +28,7 @@ export default class app extends Component {
     return (
       <div className={isDarkMode ? "dark-mode" : "light-mode"}>
         <Header toggleDarkMode={this.toggleDarkMode} isDarkMode={isDarkMode} />
-        <Container style={{ width: "1350px" }}>
+        <Container style={{ width: "100%"}}>
 
           <br />
           <Routes>
