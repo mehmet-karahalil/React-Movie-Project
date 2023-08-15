@@ -45,6 +45,9 @@ export const topratedSlice = createSlice({
     toppageDown: (state, action) => {
       state.Apage = action.payload;
     },
+    TopSetPageNumber:(state,action)=>{
+      state.Apage=action.payload
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(topgetMovie.fulfilled, (state, action) => {
@@ -62,6 +65,6 @@ export const topratedSlice = createSlice({
   },
 });
 
-export const { toppageUp, toppageDown } = topratedSlice.actions;
+export const { toppageUp, toppageDown,TopSetPageNumber } = topratedSlice.actions;
 
 export default topratedSlice.reducer;

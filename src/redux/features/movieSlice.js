@@ -45,6 +45,9 @@ export const movieSlice = createSlice({
     poppageDown: (state, action) => {
       state.Bpage = action.payload;
     },
+    popSetPageNumber:(state,action)=>{
+      state.Bpage=action.payload
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(getMovie.fulfilled, (state, action) => {
@@ -62,6 +65,6 @@ export const movieSlice = createSlice({
   },
 });
 
-export const { poppageUp, poppageDown } = movieSlice.actions;
+export const { poppageUp, poppageDown,popSetPageNumber } = movieSlice.actions;
 
 export default movieSlice.reducer;

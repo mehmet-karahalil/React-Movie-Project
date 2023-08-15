@@ -2,8 +2,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { produce } from "immer";
 
-
-
 const initialState = {
   movie: [],
   loading: false,
@@ -47,6 +45,9 @@ export const homeMovieSlice = createSlice({
     },
     pageDown: (state,action)=>{
       state.Cpage=action.payload
+    },
+    homeSetPageNumber:(state,action)=>{
+      state.Cpage=action.payload
     }
   },
   extraReducers: (builder) => {
@@ -65,6 +66,6 @@ export const homeMovieSlice = createSlice({
   },
 });
 
-export const {pageUp,pageDown}  = homeMovieSlice.actions
+export const {pageUp,pageDown,homeSetPageNumber}  = homeMovieSlice.actions
 
 export default homeMovieSlice.reducer;
